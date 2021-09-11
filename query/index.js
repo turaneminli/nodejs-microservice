@@ -14,6 +14,9 @@ app.get("/posts", (req, res) => {
 
 app.post("/events", (req, res) => {
   const { type, data } = req.body;
+  // console.log(req.body);
+  // console.log(data);
+  // console.log(type);
   if (type === "PostCreated") {
     const { id, title } = data;
     posts[id] = { id, title, comments: [] };

@@ -7,14 +7,21 @@ app.use(bodyParser.json());
 
 app.post("/events", (req, res) => {
   const event = req.body;
-
-  axios.post("http://localhost:4000/events", event);
-  axios.post("http://localhost:4001/events", event);
-  axios.post("http://localhost:4002/events", event);
+  // console.log(req.body);
+  // console.log(event);
+  axios.post("http://localhost:4000/events", event, (err) => {
+    console.log("error:" + err);
+  });
+  axios.post("http://localhost:4001/events", event, (err) => {
+    console.log("error:" + err);
+  });
+  axios.post("http://localhost:4002/events", event, (err) => {
+    console.log("error:" + err);
+  });
 
   res.send({ status: "OK" });
 });
 
 app.listen(4005, () => {
-  console.log("App listening to 4005");
+  console.log("Listening on 4005");
 });
